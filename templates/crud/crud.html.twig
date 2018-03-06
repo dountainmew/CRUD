@@ -2,22 +2,56 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Crud</title>
+        <title>CRUD</title>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#new_user_button_id").on("click", function() {
+					if ($(this).val() === "New user") {
+						$(this).val("Revert");
+					}else {
+						$(this).val("New user");
+					}
+					$("#new_user_form_id").toggle();
+					$("#save_button_id").toggle();
+				});
+			});
+		</script>
     </head>
     <body>
 		<div class="container">
 			<div class="page-header">
-				<h1>Crud aplikace</h1>
+				<h1>CRUD app</h1>
 			</div>
 			<div class="jumbotron">
-				<input type="button" id="novy_user" value="Nový uživatel" class="btn btn-primary" style="float: right;">
+				<input type="button" id="new_user_button_id" value="New user" class="btn btn-primary" style="float: right;">
 				<form id="new_user_form_id" name="new_user_form" class="form-inline" style="display:none;">
-
+					<input type="text" class="form-control novy_form_input" name="username" placeholder="Username"/>
+					<input type="text" class="form-control novy_form_input" name="firstname" placeholder="First name"/>
+					<input type="text" class="form-control novy_form_input" name="lastname" placeholder="Last name"/>
+					<input type="number" class="form-control novy_form_input" name="age" placeholder="Age"/>
+					<input type="button" id="save_button_id" value="Save" class="btn btn-success" style="display:none;"/>
 				</form>
-				<table id="users_id">
-
+				<br/><br/><br/>
+				<table id="users_table_id" class="table">
+					<tr style="border-style:hidden;">
+						<th>Username</th> 
+						<th>First name</th>
+						<th>Lastname</th>
+						<th>Age</th>
+						<th>Id</th>
+						<th></th>
 					</tr>
+				{% for u in users %}
+					<tr>
+						<td>{{ u.username }}</td>
+						<td>{{ u.firstname }}</td>
+						<td>{{ u.lastname }}</td>
+						<td>{{ u.age}}</td>
+						<td>{{ u.id }}</td>
+					</tr>
+				{% endfor %}
 				</table>
 			</div>
 		</div>

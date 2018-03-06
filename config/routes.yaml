@@ -2,6 +2,6 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-app_crud_number:
+app_crud:
     path: /crud
-    controller: App\Controller\CrudController::number
+    controller: App\Controller\CrudController::indexAction
