@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PersonRepository")
@@ -18,16 +19,28 @@ class Person
 	
 	/**
      * @ORM\Column(type="string", length=100)
+	 * @Assert\Type(
+     *     type="alpha",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
 	private $username;
 	
 	/**
      * @ORM\Column(type="string", length=100)
+	 * @Assert\Type(
+     *     type="alpha",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
 	private $firstName;
 	
 	/**
      * @ORM\Column(type="string", length=100)
+	 * @Assert\Type(
+     *     type="alpha",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
 	private $lastName;
 	

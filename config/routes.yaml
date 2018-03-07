@@ -5,3 +5,11 @@
 app_crud:
     path: /crud
     controller: App\Controller\CrudController::index
+    
+app_update:
+    path: /crud/update/{slug}
+    controller: App\Controller\CrudController::update
+    
+app_delete:
+    path: /crud/delete/{slug}
+    controller: App\Controller\CrudController::delete

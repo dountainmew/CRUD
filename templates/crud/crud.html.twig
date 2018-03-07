@@ -10,7 +10,7 @@
 			$(document).ready(function(){
 				$("#new_user_button_id").on("click", function() {
 					if ($(this).val() === "New user") {
-						$(this).val("Revert");
+						$(this).val("Hide");
 					}else {
 						$(this).val("New user");
 					}
@@ -42,7 +42,6 @@
 						<th>Email</th>
 						<th>First name</th>
 						<th>Last name</th>
-						<th>Id</th>
 						<th></th>
 					</tr>
 				{% for u in users %}
@@ -51,7 +50,10 @@
 						<td>{{ u.mail }}</td>
 						<td>{{ u.firstname }}</td>
 						<td>{{ u.lastname}}</td>
-						<td>{{ u.id }}</td>
+						<td>
+							<a href="{{ path('app_update', {'slug': u.id}) }}">Update</a>&nbsp
+							<a href="{{ path('app_delete', {'slug': u.id}) }}">Delete</a>
+						</td>
 					</tr>
 				{% endfor %}
 				</table>

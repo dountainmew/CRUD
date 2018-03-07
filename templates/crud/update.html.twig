@@ -1,0 +1,25 @@
+{% form_theme updateForm 'bootstrap_4_layout.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CRUD</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+		<div class="container">
+			<div class="page-header">
+				<h1>Update user info</h1>
+			</div>
+			<div class="jumbotron">
+				{{ form_start(updateForm) }}
+					{{ form_row(updateForm.username) }}
+					{{ form_row(updateForm.mail) }}
+					{{ form_row(updateForm.firstName) }}
+					{{ form_row(updateForm.lastName) }}
+				{{ form_end(updateForm) }}
+				<a href="{{ path('app_crud') }}" style="float: right;">Return</a>
+			</div>
+		</div>
+    </body>
+</html>
