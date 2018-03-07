@@ -4,4 +4,4 @@
 
 app_crud:
     path: /crud
-    controller: App\Controller\CrudController::indexAction
+    controller: App\Controller\CrudController::index

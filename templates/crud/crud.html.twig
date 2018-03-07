@@ -1,3 +1,4 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,29 +27,30 @@
 			</div>
 			<div class="jumbotron">
 				<input type="button" id="new_user_button_id" value="New user" class="btn btn-primary" style="float: right;">
-				<form id="new_user_form_id" name="new_user_form" class="form-inline" style="display:none;">
-					<input type="text" class="form-control novy_form_input" name="username" placeholder="Username"/>
-					<input type="text" class="form-control novy_form_input" name="firstname" placeholder="First name"/>
-					<input type="text" class="form-control novy_form_input" name="lastname" placeholder="Last name"/>
-					<input type="number" class="form-control novy_form_input" name="age" placeholder="Age"/>
-					<input type="button" id="save_button_id" value="Save" class="btn btn-success" style="display:none;"/>
-				</form>
+				<div id="new_user_form_id" name="new_user_form" class="form-inline" style="display:none;">
+				{{ form_start(form) }}
+					{{ form_row(form.username) }}
+					{{ form_row(form.mail) }}
+					{{ form_row(form.firstName) }}
+					{{ form_row(form.lastName) }}
+				{{ form_end(form) }}
+				</div>
 				<br/><br/><br/>
 				<table id="users_table_id" class="table">
 					<tr style="border-style:hidden;">
 						<th>Username</th> 
+						<th>Email</th>
 						<th>First name</th>
-						<th>Lastname</th>
-						<th>Age</th>
+						<th>Last name</th>
 						<th>Id</th>
 						<th></th>
 					</tr>
 				{% for u in users %}
 					<tr>
 						<td>{{ u.username }}</td>
+						<td>{{ u.mail }}</td>
 						<td>{{ u.firstname }}</td>
-						<td>{{ u.lastname }}</td>
-						<td>{{ u.age}}</td>
+						<td>{{ u.lastname}}</td>
 						<td>{{ u.id }}</td>
 					</tr>
 				{% endfor %}
